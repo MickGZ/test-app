@@ -1,4 +1,4 @@
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Pressable, StyleSheet, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 function Home() {
@@ -21,38 +21,46 @@ function Home() {
   };
 
   return (
-    <View style={styles.container}>
-      <View style={styles.spacing}>
-        <View>
-          <View style={styles.bgStyles}>
-            <Button
-              title="My Plan"
-              style={styles.buttonContainer}
-              onPress={goToMyPlan}
-            />
+    <View>
+      <Text style={styles.headerUser}>Hi Steven,</Text>
+      <Text style={styles.headerGreeting}>Welcome Back</Text>
+      <TextInput
+        style={styles.inputTextBar}
+        placeholder="Search for claims and documents"
+      />
+      <View>
+        <View style={styles.spacing}>
+          <View>
+            <View style={styles.bgStyles}>
+              <Pressable style={styles.buttonMenu} onPress={goToMyPlan}>
+                <Text>My Plan</Text>
+              </Pressable>
+            </View>
+            <View style={styles.bgStyles}>
+              <Pressable style={styles.buttonMenu} onPress={goToClaims}>
+                <Text>Claims</Text>
+              </Pressable>
+            </View>
           </View>
-          <View style={styles.bgStyles}>
-            <Button
-              title="Claims"
-              style={styles.buttonContainer}
-              onPress={goToClaims}
-            />
-          </View>
-        </View>
-        <View>
-          <View style={styles.bgStyles}>
-            <Button
-              title="Documents"
-              style={styles.buttonContainer}
-              onPress={goToDocuments}
-            />
-          </View>
-          <View style={styles.bgStyles}>
-            <Button
-              title="Nova Card"
-              style={styles.buttonContainer}
-              onPress={goToNovaCard}
-            />
+          <View>
+            <View style={styles.bgStyles}>
+              <Pressable
+                title="Documents"
+                style={styles.buttonMenu}
+                onPress={goToDocuments}
+              >
+                <Text>Documents</Text>
+              </Pressable>
+            </View>
+            <View style={styles.bgStyles}>
+              <Pressable
+                title="Nova Card"
+                style={styles.buttonMenu}
+                onPress={goToNovaCard}
+              >
+                <Text>Nova Card</Text>
+              </Pressable>
+            </View>
           </View>
         </View>
       </View>
@@ -61,6 +69,29 @@ function Home() {
 }
 
 const styles = StyleSheet.create({
+  mainContainer: {
+    backgroundColor: "#1E1E1E",
+  },
+  headerUser: {
+    fontSize: 20,
+    paddingTop: 15,
+    paddingLeft: 30,
+  },
+  headerGreeting: {
+    color: "#959595",
+    fontSize: 20,
+    paddingLeft: 30,
+  },
+  inputTextBar: {
+    backgroundColor: "white",
+    color: "black",
+    width: "90%",
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
+    padding: 10,
+    borderRadius: 10,
+  },
   container: {
     flex: 1,
     height: 130,
@@ -69,17 +100,25 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-evenly",
     alignItems: "center",
-    marginTop: 150,
+    marginTop: 50,
   },
   bgStyles: {
-    // flex: 1,
-    width: 100,
-    height: 100,
+    width: 140,
+    height: 140,
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    // backgroundColor: "yellow",
   },
-  buttonContainer: {
-    flex: 1,
-    width: "50%",
-    height: "50%",
+  buttonMenu: {
+    backgroundColor: "white",
+    color: "black",
+    width: 120,
+    height: 120,
+    borderRadius: 10,
+    flexDirection: "row",
+    justifyContent: "center",
+    alignItems: "center",
   },
 });
 
