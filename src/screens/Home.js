@@ -108,9 +108,9 @@ const styles = StyleSheet.create({
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
-    // backgroundColor: "yellow",
   },
   buttonMenu: {
+    shadowColor: "#00000040",
     backgroundColor: "white",
     color: "black",
     width: 120,
